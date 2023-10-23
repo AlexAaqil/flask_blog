@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %}
+    <section class="Blogs">
+        <h2 class="center">{{ posts.total }} Post(s) by {{ user.first_name }} {{ user.last_name }}</h2>
+        {% for post in posts.items %}
+            <div class="blog">
+                <div class="head">
+                    <img src="{{ url_for('static', filename='images/profile_pictures/' + post.author.image_file) }}" alt="Author's Picture" width="100">
+                    <div>
+                        <a href="{{ url_for('users.user_posts', email_address=post.author.email_address) }}">
+                            {{ post.author.first_name }} {{ post.author.last_name }}
+                        </a>
+                        <p>{{ post.date_posted.strftime('%d-%m-%Y') }}</p>
+                    </div>
+                </div>
+
+                <div class="body">
+                    <h1><a href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h1>
+                    <p class="body">{{ post.content }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
+        <p class="pagination">&lt;&lt;
+        {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+            {% if page_num %}
+                {% if posts.page == page_num %}
+                    <a class="pagination" href="{{ url_for('users.user_posts', email_address=user.email_address, page=page_num) }}">{{ page_num }}</a>
+                {% else %}
+                    <a class="pagination" href="{{ url_for('users.user_posts', email_address=user.email_address, page=page_num) }}">{{ page_num }}</a>
+                {% endif %}
+            {% else %}
+                ...
+            {% endif %}
+        {% endfor %}
+        &gt;&gt;</p>
+    </section>
+{% endblock body %}

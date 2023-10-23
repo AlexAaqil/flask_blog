@@ -1,0 +1,38 @@
+.alert {
+    position: absolute;
+    top:10vh;
+    right: 0;
+    width: 30%;
+    padding: 0.8em 2em;
+    opacity: 0;
+    transition: opacity 12s ease-in-out;
+    animation: disappear 12s ease-in-out;
+}
+
+.alert-success {
+    background: green;
+    color: #fff;
+}
+
+.alert-error {
+    background: red;
+    color: #fff;
+}
+
+.alert-info {
+    background: lightblue;
+}
+
+span.error {
+    color: red;
+    margin: 0.1em 0;
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

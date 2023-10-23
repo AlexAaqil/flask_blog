@@ -1,0 +1,62 @@
+$blog_width: 60%;
+
+.Blogs {
+  .blog {
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    width: $blog_width;
+    margin: 0 auto 1em;
+
+    .head {
+      border-bottom: 1px solid rgb(201, 201, 201);
+      padding: 0.5em 0;
+      display: flex;
+      align-items: center;
+      gap: 1em;
+
+      img {
+        border-radius: 50%;
+        width: 50px;
+        aspect-ratio: 1;
+      }
+
+      div {
+        a {
+          font-size: 1.2em;
+          font-weight: 550;
+          text-decoration: none;
+          color: #035c6b;
+        }
+        p,
+        span {
+          font-size: 0.9em;
+          margin: 0.2em 0 0;
+          font-weight: 300;
+        }
+      }
+    }
+
+    .body {
+      h1 {
+        margin: 0.2em 0;
+        a {
+          color: #000;
+          font-size: 0.8em;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    width: $blog_width;
+    margin: auto;
+    text-align: center;
+
+    a {
+        font-size: 1.1em;
+        padding: 0.2em;
+        margin: 0 0.5em;
+    }
+  }
+}

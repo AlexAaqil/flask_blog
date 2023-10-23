@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block body %}
+    <section class="NewPost">
+        <div class="container">
+            <form action="" method="post">
+                <h1>{{ form_title }}</h1>
+
+                {{ form.hidden_tag() }}
+                <div class="inputs">
+                    {{ form.title.label }}
+                    {{ form.title }}
+                </div>
+
+                <div class="inputs">
+                    {{ form.content.label }}
+                    {{ form.content }}
+                </div>
+
+                <div class="inputs">
+                    {{ form.submit(class='action_btn') }}
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock body %}

@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block body %}
+    <section class="Authentication">
+        <div class="container">
+            <form method="post" action="">
+                <h1>Request Reset Password</h1>
+                {{ form.hidden_tag() }}
+
+                <div class="inputs">
+                    {{ form.email_address.label }}
+                    {% if form.email_address.errors %}
+                        {{ form.email_address(class="invalid_input") }}
+                        {% for error in form.email_address.errors %}
+                            <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    {% else %}
+                        {{ form.email_address }}
+                    {% endif %}
+                </div>
+
+                <div class="inputs">
+                    {{ form.submit(class="action_btn") }}
+                </div>
+            </form>
+        </div>
+    </section>
+{% endblock body %}

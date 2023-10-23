@@ -1,0 +1,25 @@
+$default_side_padding: 2em;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+section {
+  padding: 0.2em $default_side_padding;
+}
+
+.center {
+    text-align: center;
+}
+
+@import "navbar";
+@import "blogs";
+@import "forms";
+@import "alerts"

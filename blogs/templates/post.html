@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+{% block body %}
+    <section class="Blogs">
+        <div class="blog">
+            <div class="head">
+                <img src="{{ url_for('static', filename='images/profile_pictures/' + post.author.image_file) }}" alt="Author's Picture" width="100">
+                <div class="text">
+                    <div>
+                        <a href="{{ url_for('users.user_posts', email_address=post.author.email_address) }}">
+                            {{ post.author.first_name }} {{ post.author.last_name }} .
+                        </a>
+                        <p>
+                            {{ post.date_posted.strftime('%d-%m-%Y') }}
+                            <span class="actions">
+                            {% if post.author == current_user %}
+                                <span>
+                                    <a href="{{ url_for('posts.update_post', post_id=post.id) }}">| Update |</a>
+                                    <button type="button">Delete</button>
+                                </span>
+                            {% endif %}
+                        </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="body">
+                <h1 class="title">{{ post.title }}</h1>
+                <p class="body">{{ post.content }}</p>
+            </div>
+        </div>
+    </section>
+{% endblock body %}
